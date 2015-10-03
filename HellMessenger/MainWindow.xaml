@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <DockPanel Name="mainPanel">
+            <DockPanel DockPanel.Dock="Top" Name="settingsPanel"></DockPanel>
+            <DockPanel DockPanel.Dock="Bottom" Name="sendPanel"></DockPanel>
+            <DockPanel DockPanel.Dock="Left" Name="usersPanel"></DockPanel>
+            <DockPanel DockPanel.Dock="Right" Name="extraPanel"></DockPanel>
+            <DockPanel Name="chatPanel"></DockPanel>
+        </DockPanel>
     </Grid>
 </Window>
