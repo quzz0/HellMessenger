@@ -1,0 +1,50 @@
+﻿<Window x:Class="HellMessenger.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:HellMessenger"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="MainWindow"
+        Width="525"
+        Height="350"
+        mc:Ignorable="d">
+    <Window.DataContext>
+        <local:ChatViewModel />
+    </Window.DataContext>
+    <Grid>
+        <DockPanel Name="mainPanel">
+            <DockPanel Name="settingsPanel" DockPanel.Dock="Top" />
+            <DockPanel Name="sendPanel" DockPanel.Dock="Bottom">
+                <Button Command="{Binding Send}"
+                        Content="Send"
+                        DockPanel.Dock="Right" />
+                <TextBox Text="{Binding Text}" />
+            </DockPanel>
+            <DockPanel Name="usersPanel" DockPanel.Dock="Left" />
+            <DockPanel Name="extraPanel" DockPanel.Dock="Right" />
+            <DockPanel Name="chatPanel">
+                <ListView ItemsSource="{Binding Messages}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Margin="10"
+                                    BorderBrush="Black"
+                                    BorderThickness="1">
+                                <StackPanel Margin="5">
+                                    <TextBlock FontWeight="Bold" Text="{Binding User.Name}" />
+                                    <TextBlock Text="{Binding Text}" />
+                                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                                        <TextBlock FontSize="10" Text="Time:" />
+                                        <TextBlock Margin="2,0"
+                                                   FontSize="10"
+                                                   FontWeight="ExtraLight"
+                                                   Text="{Binding Time}" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </DockPanel>
+        </DockPanel>
+    </Grid>
+</Window>
