@@ -1,15 +1,15 @@
-﻿<Window x:Class="HellMessenger.MainWindow"
+﻿<Window x:Class="HellMessenger.Views.ChatView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="clr-namespace:HellMessenger"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:HellMessenger.ViewModels"
         Title="MainWindow"
         Width="525"
         Height="350"
         mc:Ignorable="d">
     <Window.DataContext>
-        <local:ChatViewModel />
+        <vm:ChatViewModel />
     </Window.DataContext>
     <Grid>
         <DockPanel Name="mainPanel">
@@ -18,7 +18,9 @@
                 <Button Command="{Binding Send}"
                         Content="Send"
                         DockPanel.Dock="Right" />
-                <TextBox Text="{Binding Text}" />
+                <TextBox AcceptsReturn="True"
+                         Text="{Binding Text}"
+                         TextWrapping="Wrap" />
             </DockPanel>
             <DockPanel Name="usersPanel" DockPanel.Dock="Left" />
             <DockPanel Name="extraPanel" DockPanel.Dock="Right" />

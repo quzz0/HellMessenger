@@ -2,14 +2,14 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace HellMessenger
+namespace HellMessenger.Views
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для ChatView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ChatView : Window
     {
-        public MainWindow()
+        public ChatView()
         {
             InitializeComponent();
         }

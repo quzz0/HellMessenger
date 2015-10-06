@@ -9,11 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace HellMessenger
+namespace HellMessenger.ViewModels
 {
     class ChatViewModel : ViewModelBase
     {
         private Chat chat = new Chat();
+
+        public bool _closed { get; set; }
 
         public ObservableCollection<Message> Messages { get; private set; }
 
@@ -35,11 +37,7 @@ namespace HellMessenger
 
         public ChatViewModel()
         {
-            Username = "S470-kun";
-            Messages = new ObservableCollection<Message>()
-            {
-                new Message("nullbyte", "Hello world lolo loladoasodaosd aso doasdo asod oasdo asod o "),
-            };
+            Messages = new ObservableCollection<Message>();
         }
     }
 }

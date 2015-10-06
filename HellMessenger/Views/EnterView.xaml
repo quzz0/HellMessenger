@@ -1,0 +1,43 @@
+﻿<Window x:Class="HellMessenger.Views.EnterView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:HellMessenger"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:HellMessenger.ViewModels"
+        Name="EnterWindow"
+        Title="EnterView"
+        Width="240"
+        Height="200"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d">
+    <Window.DataContext>
+        <vm:EnterViewModel />
+    </Window.DataContext>
+    <Grid>
+        <TextBlock x:Name="textBlock"
+                   Width="74"
+                   Height="17"
+                   Margin="10,58,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Text="Your name:"
+                   TextWrapping="Wrap" />
+        <TextBox x:Name="textBox"
+                 Height="17"
+                 Margin="10,75,10,0"
+                 VerticalAlignment="Top"
+                 Text="{Binding Username}"
+                 TextWrapping="Wrap" />
+        <Button x:Name="button"
+                Width="84"
+                Height="24"
+                Margin="0,97,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Command="{Binding Enter,
+                                  Mode=OneWay}"
+                CommandParameter="{Binding ElementName=EnterWindow}"
+                Content="Enter" />
+    </Grid>
+</Window>
